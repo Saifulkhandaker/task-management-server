@@ -37,6 +37,13 @@ async function run() {
         const result = await taskCollection.insertOne(newTask);
         res.send(result)
     })
+    
+    // task collectio api
+    app.get('/task', async(req, res) => {
+        const cursor = taskCollection.find();
+        const result = await cursor.toArray();
+        res.send(result);
+    })
 
 
 
